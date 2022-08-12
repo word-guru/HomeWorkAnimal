@@ -1,0 +1,29 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Animal";
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Sound</th>
+        </tr>
+    </thead>
+    
+        @foreach(var a in Model.animals)
+        {
+            <tr>
+                @foreach(var i in a.Key)
+                {
+                    <td>@i</td>
+                }
+                @foreach (var v in a.Value)
+                {
+                    <td>@v</td>
+                }
+            </tr>
+        }
+
+</table>
