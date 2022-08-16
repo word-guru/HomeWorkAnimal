@@ -4,26 +4,49 @@
     ViewData["Title"] = "Animal";
 }
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Sound</th>
-        </tr>
-    </thead>
-    
-        @foreach(var a in Model.animals)
-        {
+<form method="post">
+    <table>
+        <thead>
             <tr>
-                @foreach(var i in a.Key)
-                {
-                    <td>@i</td>
-                }
-                @foreach (var v in a.Value)
-                {
-                    <td>@v</td>
-                }
+                <th>Name</th>
+                <th>Sound</th>
             </tr>
+        </thead>
+        @if(Model.animals2.Count < 1)
+        {
+            @foreach(var a in Model.animals)
+            {
+            
+                 @for(int i=0; i<a.Key.Count; i++)
+                {
+                    <tr>
+                        <td>@a.Key[i]</td>
+                        <td>@a.Value[i]</td>
+                    </tr>
+                }
+            
+            }
         }
+        else
+        {
+            @foreach(var item in Model.animals2)
+            {
+                  <tr>
+                        <td>@item.Key</td>
+                        <td>@item.Value</td>
+                    </tr>
 
-</table>
+            }
+        }
+        
+
+    </table>
+
+    <input type="submit" value="Save File" asp-page-handler="SaveFile"></input>
+
+</form>
+<form asp-action="LoadFile" method="post" enctype="multipart/form-data">
+    <input type="file" name="uploadedFile"/>
+    <br/>
+    <input type="submit" value="Load" asp-page-handler="LoadFile"/>
+</form>

@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddTransient<Animal,Cat>();
 builder.Services.AddTransient<Animal, Dog>();
 builder.Services.AddTransient<IRepozitory,Repozitory>();
+builder.Services.AddTransient<IFileOperations, FileOperations>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
