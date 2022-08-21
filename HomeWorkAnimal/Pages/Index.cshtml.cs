@@ -39,9 +39,9 @@ namespace HomeWorkAnimal.Pages
             _fileOperations.SaveFile(res);
         }
 
-        public void OnPostLoadFile(IFormFile uploadedFile)
+        public void OnPostLoadFile()
         {
-            animals2 = _fileOperations.LoadFile(uploadedFile);
+            animals2 = _fileOperations.LoadFile();
         }
     }
 }

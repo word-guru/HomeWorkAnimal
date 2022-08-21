@@ -12,7 +12,7 @@ namespace HomeWorkAnimal.Repozitory
             this.env = env;
         }
 
-        public Dictionary<string,string> LoadFile(IFormFile uploadedFile)
+        public Dictionary<string,string> LoadFile()
         {
             string path = env.WebRootPath + "/File/TextFile.txt";
             var regex = new Regex(@"[a-zA-Z]+");
